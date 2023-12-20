@@ -1,0 +1,195 @@
+.details_section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    font-size: 0.9rem;
+}
+.pf_details_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    font-size: 0.9rem;
+}
+
+.pf_amount {
+    background: cadetblue;
+    color: #fff;
+    padding: 2px 9px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+.section_title {
+    position: absolute;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgb(251 251 251) 85%);
+    margin-left: 19px;
+    margin-top: -12px;
+    font-size: 15px;
+    color: #0a2b6e;
+    width: auto;
+    text-align: center;
+    padding: 0px 7px 0px 7px;
+}
+.basic_details_section_overlay {
+    background: transparent !important;
+    font-size: 14px !important;
+}
+.basic_details_section_overlay:hover {
+    background: #0b87cf !important;
+    color: #fff !important;
+}
+
+.doc_details_section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+}
+
+.doc_details_section Button {
+    width: 100%;
+    font-size: 15px;
+}
+
+.add_dots {
+    white-space: nowrap;
+    width: 18rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: -5px;
+}
+
+.claim_for_section {
+    position: relative;
+    margin-bottom: 0px;
+    margin-left: 100px;
+    margin-top: -23px;
+}
+
+.nominee_index {
+    position: absolute;
+    background: linear-gradient(45deg, #020e27, #5f8ce7);
+    padding: 3px;
+    text-align: center;
+    border-radius: 22px;
+    width: 19px;
+    color: #fff;
+    margin-left: -5px;
+    font-size: 9px;
+}
+
+.slo_new_claim_btn {
+    width: 18%;
+    float: right;
+    position: relative;
+    bottom: 9px;
+}
+
+.alc_dwn_ben_report {
+    width: 18%;
+    float: right;
+    position: relative;
+    bottom: 9px;
+}
+.alc_dwn_ben_report .alc_dwn_ben_report_dropdown {
+    width: 100%;
+    position: absolute;
+    top: 39px;
+    cursor: pointer;
+    box-shadow: 0px 0px 16px #1c15129c;
+}
+
+@media only screen and (max-width: 600px) {
+    .alc_dwn_ben_report {
+        width: 80%;
+        position: absolute;
+        top: 125px;
+    }
+    .alc_claim_tabs {
+        margin-top: 35px;
+    }
+
+    .slo_new_claim_btn {
+        width: 80%;
+        position: absolute;
+        top: 125px;
+    }
+
+    .details_section,
+    .doc_details_section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.8rem;
+        font-size: 0.9rem;
+    }
+    .section_title {
+        position: absolute;
+        text-align: center;
+    }
+
+    .add_dots {
+        width: 16rem;
+    }
+}
+
+@media only screen and (max-width: 820) {
+    .alc_dwn_ben_report {
+        width: 100%;
+        position: absolute;
+        top: 125px;
+        float: left;
+    }
+    .alc_claim_tabs {
+        margin-top: 50px;
+    }
+    .claim_upload_req_doc {
+        position: inherit;
+    }
+    .details_section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .doc_details_section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/** Approved Beneficiary details pages **/
+.ben_details_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    font-size: 0.9rem;
+}
+.ben_address_details_section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3px;
+    font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .ben_details_section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 3px;
+        font-size: 0.9rem;
+    }
+}
+
+.claim_option_icon {
+    color: transparent;
+    box-shadow: 0px 1px 7px rgba(62, 67, 31, 0.611745);
+    border-radius: 9px;
+    background: linear-gradient(45deg, #4f7b80, #76d2dd);
+}
+.claim_values {
+    font-size: 15px;
+    font-weight: 600;
+    background: linear-gradient(44deg, #0f24f1, #174d9b);
+    // -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

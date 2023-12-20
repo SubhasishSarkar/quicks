@@ -1,0 +1,32 @@
+.image-container {
+    width: 100%; /* Set the width of the image container */
+    height: 600px; /* Set the height of the image container */
+    overflow: scroll;
+    position: relative;
+}
+
+.image {
+    width: 100%; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.5s ease-in-out;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.image_buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px; /* Adjust padding as needed */
+}
+
+button {
+    margin: 0 5px;
+}

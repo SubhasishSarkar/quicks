@@ -1,0 +1,26 @@
+.bmssy-loader {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    animation: s4 4s infinite;
+}
+.bmssy-loader::before,
+.bmssy-loader::after {
+    content: "";
+    grid-area: 1/1;
+    border: 6px solid;
+    border-radius: 50%;
+    border-color: #766df4 #766df4 #0000 #0000;
+    mix-blend-mode: darken;
+    animation: s4 1s infinite linear;
+}
+.bmssy-loader::after {
+    border-color: #0000 #0000 #e4e4ed #e4e4ed;
+    animation-direction: reverse;
+}
+
+@keyframes s4 {
+    100% {
+        transform: rotate(1turn);
+    }
+}
