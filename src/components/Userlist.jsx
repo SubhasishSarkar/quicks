@@ -10,7 +10,7 @@ const UserList = () => {
             setError(null);
             setLoading(true);
             try {
-                const token = localStorage.getItem("bmssy_token");
+                const token = localStorage.getItem("quicks_token");
                 const res = await fetch(process.env.APP_BASE_API + "/user-list", {
                     method: "GET",
                     headers: {

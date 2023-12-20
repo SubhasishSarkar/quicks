@@ -19,7 +19,7 @@ const PanAadhaar = ({ data, handleChange }) => {
 
     const query = useQueryClient();
     const uploadProfilePic = () => {
-        const token = localStorage.getItem("bmssy_token");
+        const token = localStorage.getItem("quicks_token");
         const formData = new FormData();
         formData.append("panAadhaarLinkedDoc", pic);
         axios
@@ -42,7 +42,7 @@ const PanAadhaar = ({ data, handleChange }) => {
     };
 
     const deleteProfilePicture = async () => {
-        const token = localStorage.getItem("bmssy_token");
+        const token = localStorage.getItem("quicks_token");
         axios
             .delete(process.env.APP_BASE_API + "/pan-aadhaar-link-doc-upload", {
                 headers: { Authorization: "Bearer " + token, "Content-Type": "multipart/form-data" },

@@ -22,7 +22,7 @@ const ProfilePicture = ({ data }) => {
 
     const query = useQueryClient();
     const uploadProfilePic = () => {
-        const token = localStorage.getItem("bmssy_token");
+        const token = localStorage.getItem("quicks_token");
         const formData = new FormData();
         formData.append("profilePic", pic);
         axios
@@ -45,7 +45,7 @@ const ProfilePicture = ({ data }) => {
     };
 
     const deleteProfilePicture = async () => {
-        const token = localStorage.getItem("bmssy_token");
+        const token = localStorage.getItem("quicks_token");
         axios
             .get(process.env.APP_BASE_API + "/delete-profile-picture", {
                 headers: { Authorization: "Bearer " + token, "Content-Type": "multipart/form-data" },

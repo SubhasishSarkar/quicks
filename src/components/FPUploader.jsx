@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginFileValidateSize);
 
 const fetcher = async (body, method, url) => {
-    const token = localStorage.getItem("bmssy_token");
+    const token = localStorage.getItem("quicks_token");
     if (!token) throw new Error("There is no token");
     const options = {
         method: method,

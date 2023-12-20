@@ -2,7 +2,7 @@
 import { toast } from "react-toastify";
 
 export const fetcher = async (url) => {
-    const token = localStorage.getItem("bmssy_token");
+    const token = localStorage.getItem("quicks_token");
 
     if (!token) throw new Error("There is no token");
 
@@ -25,7 +25,7 @@ export const fetcher = async (url) => {
 };
 
 export const updater = async (url, { method, body }) => {
-    const token = localStorage.getItem("bmssy_token");
+    const token = localStorage.getItem("quicks_token");
 
     if (!token) throw new Error("There is no token");
     const options = {
@@ -79,7 +79,7 @@ export const searchParamsToObject = (searchParams) => {
 export const downloadFile = async (url, filename) => {
     try {
         // toast.info("Please wait,Your file is preparing");
-        const token = localStorage.getItem("bmssy_token");
+        const token = localStorage.getItem("quicks_token");
 
         const res = await fetch(process.env.APP_BASE_API + url, {
             headers: {
@@ -115,7 +115,7 @@ export const downloadFile = async (url, filename) => {
 
 export const blankOpenFile = async (url, filename) => {
     try {
-        const token = localStorage.getItem("bmssy_token");
+        const token = localStorage.getItem("quicks_token");
         const res = await fetch(process.env.APP_BASE_API + url, {
             headers: {
                 Authorization: "Bearer " + token,
@@ -137,7 +137,7 @@ export const blankOpenFile = async (url, filename) => {
 };
 
 export const downloadExistingFile = async (apiUrl, filename) => {
-    const token = localStorage.getItem("bmssy_token");
+    const token = localStorage.getItem("quicks_token");
     fetch(process.env.APP_BASE_API + apiUrl, {
         method: "GET",
         headers: {

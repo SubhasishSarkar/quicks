@@ -13,12 +13,12 @@ const AuthProvider = () => {
 
     useEffect(() => {
         (async () => {
-            const token = localStorage.getItem("bmssy_token");
+            const token = localStorage.getItem("quicks_token");
             if (!user && token) {
                 setError(null);
                 setLoading(true);
                 try {
-                    const res = await fetch(process.env.APP_BASE_API + "/user", {
+                    const res = await fetch(process.env.APP_BASE_API + "/super/admin/me", {
                         method: "GET",
                         headers: {
                             Accept: "application/json",
@@ -42,7 +42,7 @@ const AuthProvider = () => {
         })();
     }, [dispatch, user]);
 
-    if (localStorage.getItem("bmssy_token"))
+    if (localStorage.getItem("quicks_token"))
         if (user) return <Outlet />;
         // if (user) return <MainLoader />;
         else if (loading)

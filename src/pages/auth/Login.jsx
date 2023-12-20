@@ -51,7 +51,7 @@ const Login = () => {
                 localStorage.clear();
                 dispatch(login({ ...data.user, token: data.token }));
                 // toast.success("Login Successfully");
-                localStorage.setItem("bmssy_token", data.token);
+                localStorage.setItem("quicks_token", data.token);
                 navigate("/dashboard");
             } else {
                 const data = await res.json();
@@ -67,7 +67,7 @@ const Login = () => {
 
    
     const onFocus = () => {
-        setToken(localStorage.getItem("bmssy_token"));
+        setToken(localStorage.getItem("quicks_token"));
     };
     useEffect(() => {
         window.addEventListener("focus", onFocus);

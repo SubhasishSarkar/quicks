@@ -27,7 +27,7 @@ const RegistrationForm = ({ data }) => {
             setLoading(true);
             setSuccess(null);
             try {
-                const token = localStorage.getItem("bmssy_token");
+                const token = localStorage.getItem("quicks_token");
                 const res = await fetch(process.env.APP_BASE_API + (data ? "/user-update/" + data?.id : "/registration-test"), {
                     method: "POST",
                     headers: {

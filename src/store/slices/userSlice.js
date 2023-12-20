@@ -7,7 +7,7 @@ const userSlice = createSlice({
     },
     reducers: {
         logout(state) {
-            localStorage.removeItem("bmssy_token");
+            localStorage.removeItem("quicks_token");
             state.user = null;
         },
         login(state, action) {
@@ -45,12 +45,12 @@ const userSlice = createSlice({
                 profilePic: user?.profile_pic,
                 postingType: Number(user.posting_type),
                 updatePassword: user.update_password,
-                token: user.token || localStorage.getItem("bmssy_token"),
+                token: user.token || localStorage.getItem("quicks_token"),
             };
         },
         //handle multiple tab , user states
         refresh(state) {
-            const token = localStorage.getItem("bmssy_token");
+            const token = localStorage.getItem("quicks_token");
 
             // token = null and user data is present : logged out from another tab
             //state.user.token != token from localStorage : logged out from different tab and then logged in, hence

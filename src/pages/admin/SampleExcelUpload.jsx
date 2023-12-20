@@ -14,7 +14,7 @@ const SampleExcelUpload = () => {
     };
 
     const uploadProfilePic = () => {
-        const token = localStorage.getItem("bmssy_token");
+        const token = localStorage.getItem("quicks_token");
         const formData = new FormData();
         formData.append("excelFile", pic);
         axios
