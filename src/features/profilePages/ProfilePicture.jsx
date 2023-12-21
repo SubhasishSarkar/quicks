@@ -1,4 +1,4 @@
-import { useQueryClient } from "@tanstack/react-query";
+// import { useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -20,7 +20,7 @@ const ProfilePicture = ({ data }) => {
         border: "none",
     };
 
-    const query = useQueryClient();
+    // const query = useQueryClient();
     const uploadProfilePic = () => {
         const token = localStorage.getItem("quicks_token");
         const formData = new FormData();
@@ -32,14 +32,14 @@ const ProfilePicture = ({ data }) => {
             .catch(function (error) {
                 toast.error(error.response.data.message);
                 setFile();
-                query.invalidateQueries("get-profile-page-data");
+                // query.invalidateQueries("get-profile-page-data");
             })
             .then((res) => {
                 if (res.status === 200) {
-                    dispatch(profile(res.data.user));
+                    dispatch(profile(res.data.superAdmin));
                     toast.success(res.data.message);
                     setFile();
-                    query.invalidateQueries("get-profile-page-data");
+                    // query.invalidateQueries("get-profile-page-data");
                 }
             });
     };
@@ -53,14 +53,14 @@ const ProfilePicture = ({ data }) => {
             .catch(function (error) {
                 toast.error(error.response.data.message);
                 setFile();
-                query.invalidateQueries("get-profile-page-data");
+                // query.invalidateQueries("get-profile-page-data");
             })
             .then((res) => {
                 if (res.status === 200) {
-                    dispatch(profile(res.data.user));
+                    dispatch(profile(res.data.superAdmin));
                     toast.success(res.data.message);
                     setFile();
-                    query.invalidateQueries("get-profile-page-data");
+                    // query.invalidateQueries("get-profile-page-data");
                 }
             });
     };
@@ -75,7 +75,9 @@ const ProfilePicture = ({ data }) => {
                     <div className="d-md-flex justify-content-md-center img-profile rounded-circle" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                         {!isHovered ? (
                             <>
-                                <img src={file ? file : data?.profile_pic ? process.env.APP_BASE + "/" + data?.profile_pic : DefaultProfilePicture} alt="" />
+                                {/* <img src={file ? file : data?.profilePic ? process.env.APP_BASE_API + "/" + data?.profilePic : DefaultProfilePicture} alt="" /> */}
+                                <img src={file ? file : data?.profilePic ? data?.profilePic : DefaultProfilePicture} alt="" />
+
 
                                 <input
                                     id="file-upload"
@@ -89,8 +91,8 @@ const ProfilePicture = ({ data }) => {
                             </>
                         ) : (
                             <div className="d-flex justify-content-md-center  rounded-circle">
-                                <img src={file ? file : data?.profile_pic ? process.env.APP_BASE + "/" + data?.profile_pic : DefaultProfilePicture} alt="" style={{ opacity: data?.profile_pic && "40%" }} />
-                                {data?.profile_pic && (
+                                <img src={file ? file : data?.profilePic ? data?.profilePic : DefaultProfilePicture} alt="" style={{ opacity: data?.profilePic && "40%" }} />
+                                {data?.profilePic && (
                                     <button type="button" style={{ position: "absolute", top: "100px", cursor: "pointer", fontSize: "19px", background: "transparent", border: "none", color: "red" }} onClick={() => deleteProfilePicture()}>
                                         <i className="fa-solid fa-trash-can"></i>
                                         <span style={{ fontSize: "12px", display: "block", fontWeight: "500" }}>Delete</span>

@@ -11,8 +11,6 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     const [token, setToken] = useState("");
-    
-   
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -49,8 +47,8 @@ const Login = () => {
             if (res.ok) {
                 const data = await res.json();
                 localStorage.clear();
-                dispatch(login({ ...data.user, token: data.token }));
-                // toast.success("Login Successfully");
+                dispatch(login({ ...data.superAdmin, token: data.token }));
+                toast.success("Login Successfully");
                 localStorage.setItem("quicks_token", data.token);
                 navigate("/dashboard");
             } else {
@@ -101,7 +99,8 @@ const Login = () => {
 
     return (
         <>
-            <div className="login">
+
+        <div className="login">
                 <div className="login-bg">
                     <div className="row">
                         <div className="col-md-12 col-lg-8 ml-auto">
@@ -187,7 +186,7 @@ const Login = () => {
                         </div>
                     </form>
                 </div>
-            </div>
+        </div>
             <div className="form-footer">
                 <div className="copyright" style={{ float: "right" }}>
                     <span className="float-right">
@@ -197,6 +196,7 @@ const Login = () => {
                     </span>
                 </div>
             </div>
+         
         </>
     );
 };

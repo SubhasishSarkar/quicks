@@ -13,39 +13,35 @@ const userSlice = createSlice({
         login(state, action) {
             // state e previous data and action e user data
             const user = action.payload;
+            // console.log("user--slice",user)
 
             state.user = {
-                id: user.uid,
-                email: user.email,
-                name: user.name,
-                role: user.role_name,
-                district: Number(user.district_code),
-                subDivision: Number(user.sub_div_code),
-                blockCode: Number(user.block_code),
-                rid: Number(user.rid),
-                profilePic: user?.profile_pic,
-                postingType: Number(user.posting_type),
-                rloCode: Number(user.rlo_code),
-                lwfcCode: user.lwfc_code,
-                updatePassword: user.update_password,
-                token: user.token,
+                id: user?.uid,
+                email: user?.email,
+                name: user?.name,
+                role: user?.role,
+                token: user?.token || localStorage.getItem("quicks_token"),
+                status:user?.status,
+                profile:user?.profile,
+                approved:user?.approved,
+                approveFirm:user?.approveFirm,
+                profilePic:user?.imageUrl
             };
         },
         profile(state, action) {
             const user = action.payload;
+            console.log("usss--",user)
             state.user = {
-                id: user.uid,
-                email: user.email,
-                name: user.name,
-                role: user.role_name,
-                district: Number(user.district_code),
-                subDivision: Number(user.sub_div_code),
-                blockCode: Number(user.block_code),
-                rid: Number(user.rid),
-                profilePic: user?.profile_pic,
-                postingType: Number(user.posting_type),
-                updatePassword: user.update_password,
-                token: user.token || localStorage.getItem("quicks_token"),
+                id: user?.uid,
+                email: user?.email,
+                name: user?.name,
+                role: user?.role,
+                token: user?.token || localStorage.getItem("quicks_token"),
+                status:user?.status,
+                profile:user?.profile,
+                approved:user?.approved,
+                approveFirm:user?.approveFirm,
+                profilePic:user?.imageUrl
             };
         },
         //handle multiple tab , user states

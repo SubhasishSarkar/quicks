@@ -1,5 +1,5 @@
 import React from "react";
-import wbMapImage from "/assets/admin_logo.png";
+import Skateboarding from "/assets/Skateboarding.gif";
 
 const mainContainerStyle = {
     position: "absolute",
@@ -12,24 +12,13 @@ const imageStyle = {
     transformOrigin: "center",
 };
 
-// const flipLeftToRightKeyframes = {
-//     "0%": {
-//         transform: "scaleX(1)",
-//     },
-//     "50%": {
-//         transform: "scaleX(-1)",
-//     },
-//     "100%": {
-//         transform: "scaleX(1)",
-//     },
-// };
 
 const MainLoader = () => {
     return (
         <>
             <div className="d-flex justify-content-center">
                 <div style={mainContainerStyle}>
-                    <img src={wbMapImage} alt="Loader" style={imageStyle} height="65" width="50" />
+                    <img src={Skateboarding} alt="Loader" style={imageStyle} height="65" width="50" />
                 </div>
             </div>
         </>

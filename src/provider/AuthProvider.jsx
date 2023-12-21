@@ -15,6 +15,7 @@ const AuthProvider = () => {
         (async () => {
             const token = localStorage.getItem("quicks_token");
             if (!user && token) {
+                console.log("DDDD",token)
                 setError(null);
                 setLoading(true);
                 try {
@@ -23,11 +24,12 @@ const AuthProvider = () => {
                         headers: {
                             Accept: "application/json",
                             "Content-type": "application/json",
-                            Authorization: "Bearer " + token,
+                            // Authorization: "Bearer " + token,
                         },
                     });
                     if (res.ok) {
                         const data = await res.json();
+                        console.log("djdjdjd----------",data)
                         dispatch(login({ ...data, token: token }));
                     } else {
                         const data = await res.json();
