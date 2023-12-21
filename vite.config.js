@@ -34,6 +34,6 @@ export default defineConfig(({ mode }) => {
     return {
         resolve: { alias: { "~bootstrap": "bootstrap", } },
         plugins: [react(), eslintPlugin(), dotEnvReplacement(env)],
-        base: "/v2/",
+        // base: "/v2/",
     };
 });
