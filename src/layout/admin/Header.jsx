@@ -63,7 +63,7 @@ const Header = () => {
                     <li className="nav-item dropdown header-user">
                         <Link className="nav-link" to="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div className="float-left img-profile rounded-circle">
-                                {userData && userData.profilePic ? <img src={process.env.APP_BASE_V2 + "/" + userData.profilePic} alt="" /> : <img className="img-profile rounded-circle" src={userImg} alt="" />}
+                                {userData && userData.profilePic ? <img src={ userData.profilePic} alt="" /> : <img className="img-profile rounded-circle" src={userImg} alt="" />}
                             </div>
                             {!isMobileDevice && (
                                 <div className="float-right">

@@ -7,6 +7,7 @@ import AuthProvider from "./provider/AuthProvider";
 import PageNotFound from "./components/PageNotFound";
 
 import RoleRestriction from "./pages/admin/RoleRestriction";
+import AllSuperAdmin from "./pages/superAdmin/AllSuperAdmin";
 
 
 const router = createBrowserRouter(
@@ -38,6 +39,10 @@ const router = createBrowserRouter(
                                 {
                                     path: "/dashboard",
                                     element: <Dashboard />,
+                                },
+                                {
+                                    path: "/super-admin-list",
+                                    element: <AllSuperAdmin />,
                                 },
                                
                             ],

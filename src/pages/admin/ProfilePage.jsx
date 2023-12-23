@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const { roleName } = useParams();
     return (
         <>
-            {["SLO", "collectingagent", "otherserviceprovider"].includes(roleName) && <SLOProfilePage />}
+            {["CEO"].includes(roleName) && <SLOProfilePage />}
             {roleName === "inspector" && <ImwProfilePage />}
             {roleName === "ALC" && <AlcProfilePage />}
             {roleName === "DLC" && <DlcProfilePage />}

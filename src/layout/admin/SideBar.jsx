@@ -18,12 +18,12 @@ const links = [
         icon: "fa-solid fa-glasses",
         access: ["ALC"],
     },
-    // {
-    //     link: "/sample",
-    //     label: "Sample",
-    //     icon: "fa-solid fa-house-chimney",
-    //     access: ["SUPER ADMIN"],
-    // },
+    {
+        link: "/super-admin-list",
+        label: "Super Admin List",
+        icon: "fa-solid fa-house-chimney",
+        access: ["CEO"],
+    },
     {
         link: "/alc-user-management",
         label: "User Management",

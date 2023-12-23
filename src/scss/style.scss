@@ -804,20 +804,7 @@ a:focus {
     float: right;
     margin-top: -54px;
 }
-.login h1 {
-    font-size: 26px;
-    font-weight: 600;
-    margin: 120px 0 0;
-    padding: 0;
-    color: #4e4e4e;
-}
-.login h5 {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0 0 20px;
-    padding: 0;
-    color: #0062cc;
-}
+
 .login .form-control {
     height: 60px !important;
     border-radius: 0;
@@ -934,7 +921,7 @@ input:not(:focus):valid ~ .floating-label {
 
     .login {
         display: block;
-        background: #0062cc;
+        
     }
     .login-bg {
         background: #fff;
@@ -942,13 +929,8 @@ input:not(:focus):valid ~ .floating-label {
     .login-form .text-dark {
         color: #ffffff !important;
     }
-    .login h1 {
-        margin: 40px 0 0;
-        color: #fff;
-    }
-    .login h5 {
-        color: #fff;
-    }
+   
+    
     .login-form {
         width: 55%;
         margin: 0 auto;
@@ -1061,18 +1043,9 @@ input:not(:focus):valid ~ .floating-label {
 
     .login {
         display: block;
-        background: #0062cc;
         align-items: center;
     }
-    .login h1 {
-        margin: 40px 0 0;
-        font-size: 22px;
-        color: #fff;
-    }
-    .login h5 {
-        font-size: 16px;
-        color: #fff;
-    }
+   
     .logo {
         position: relative;
         text-align: center;

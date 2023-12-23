@@ -6,6 +6,7 @@ import { Navigate, useNavigate } from "react-router";
 import { useValidate } from "../../hooks";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 
 
@@ -46,9 +47,11 @@ const Login = () => {
             });
             if (res.ok) {
                 const data = await res.json();
+                console.log(res)
                 localStorage.clear();
                 dispatch(login({ ...data.superAdmin, token: data.token }));
                 toast.success("Login Successfully");
+                document.cookie = "token="+data.token;
                 localStorage.setItem("quicks_token", data.token);
                 navigate("/dashboard");
             } else {
@@ -98,10 +101,10 @@ const Login = () => {
     };
 
     return (
-        <>
+        <div className="d-flex justify-content-center align-items-center h-100  login">
 
-        <div className="login">
-                <div className="login-bg">
+        <Card>
+                {/* <div className="login-bg">
                     <div className="row">
                         <div className="col-md-12 col-lg-8 ml-auto">
                             <div className="logo">
@@ -111,9 +114,10 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="login-form">
+               <Card.Body>
+
                     <form onSubmit={handleSubmit}>
                         <div className="col-md-12 mb-4">
                             <h1>Sign in to Continue</h1>
@@ -180,14 +184,14 @@ const Login = () => {
                                 <i className="fas fa-unlock-alt"></i> Forgot Password?
                             </Link>
 
-                            <Link to="/" className="text-dark" style={{ float: "right", textDecoration: "none" }}>
+                            {/* <Link to="/" className="text-dark" style={{ float: "right", textDecoration: "none" }}>
                                 <i className="fas fa-home"></i> Back To Home
-                            </Link>
+                            </Link> */}
                         </div>
                     </form>
-                </div>
-        </div>
-            <div className="form-footer">
+                </Card.Body>
+        </Card>
+            {/* <div className="form-footer">
                 <div className="copyright" style={{ float: "right" }}>
                     <span className="float-right">
                         <Link to="https://www.quicks.com" target="_blank" rel="noreferrer">
@@ -195,9 +199,9 @@ const Login = () => {
                         </Link>
                     </span>
                 </div>
-            </div>
+            </div> */}
          
-        </>
+        </div>
     );
 };
 

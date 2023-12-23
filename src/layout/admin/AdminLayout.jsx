@@ -5,6 +5,7 @@ import SideBar from "./SideBar";
 
 import "../../scss/dashboard.scss";
 import "../../scss/claimPages.scss";
+import "../../scss/style.scss";
 import useDeviceDetector, { isMobile } from "../../hooks/DeviceDetector";
 import MobileHamburgerMenu from "./MobileHamburgerMenu";
 import Footer from "./Footer";
