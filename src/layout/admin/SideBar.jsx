@@ -1002,7 +1002,6 @@ const SideBar = ({ isOpen: isOpenMobile, handleIsOpen: handleIsOpenMobile }) => 
                 >
                     <div>
                         <div className="sidebar-header bmssy-logo">
-                           
                             <div className="">
                                 <div>
                                     <NavLink to="/dashboard" style={{ textDecoration: "none" }}>
@@ -1010,10 +1009,9 @@ const SideBar = ({ isOpen: isOpenMobile, handleIsOpen: handleIsOpenMobile }) => 
                                     </NavLink>
                                 </div>
                                 <div>
-                                   
-                                        <p className="lh-1 font-monospace text-muted" style={{ fontSize: "11px", display: "flex", cursor: "pointer" }}>
-                                            ADMIN PANEL
-                                        </p>
+                                    <p className="lh-1 font-monospace text-muted" style={{ fontSize: "11px", display: "flex", cursor: "pointer" }}>
+                                        ADMIN PANEL
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1062,8 +1060,6 @@ const SideBar = ({ isOpen: isOpenMobile, handleIsOpen: handleIsOpenMobile }) => 
                                 justifyContent: "end",
                             }}
                         >
-                           
-
                             <button
                                 type="button"
                                 id="sidebarCollapse"

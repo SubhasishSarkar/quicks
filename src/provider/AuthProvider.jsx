@@ -15,7 +15,6 @@ const AuthProvider = () => {
         (async () => {
             const token = localStorage.getItem("quicks_token");
             if (!user && token) {
-                console.log("DDDD",token)
                 setError(null);
                 setLoading(true);
                 try {
@@ -46,15 +45,9 @@ const AuthProvider = () => {
     if (localStorage.getItem("quicks_token"))
         if (user) return <Outlet />;
         // if (user) return <MainLoader />;
-        else if (loading)
-            return (
-                <MainLoader/>
-            );
+        else if (loading) return <MainLoader />;
         else if (error) return <Navigate to="/login" state={{ from: location }} />;
-        else
-            return (
-                <MainLoader/>
-            );
+        else return <MainLoader />;
     else return <Navigate to="/login" state={{ from: location }} />;
 };
 
