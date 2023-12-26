@@ -51,7 +51,7 @@ a:focus {
     overflow-y: auto;
     min-width: 260px;
     max-width: 260px;
-    background: rgba(0, 12, 37, 0.849);
+    background: rgba(0, 12, 37, 1);
     transition: all 0.3s;
     position: relative;
     padding: 16px;
@@ -59,8 +59,7 @@ a:focus {
 }
 
 #sidebar :hover {
-    // font-size: 13.3px;s
-    color: rgb(5, 238, 5);
+    font-size: 15px;
 }
 
 #sidebar.sidebar_desktop {

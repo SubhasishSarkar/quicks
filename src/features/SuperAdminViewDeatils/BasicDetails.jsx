@@ -44,20 +44,19 @@ function BasicDetails({ data }) {
                 <div className="card-body">
                     <div className="ben_details_section mb-0" style={{ fontWeight: "500" }}>
                         <span>
-                            <i className="fa-solid fa-circle-dot label_pointer"></i> <b>Approved :</b> {data?.approved ? "Yes" : "No" ?? ""}
-                        </span>
-                        <span>
                             <i className="fa-solid fa-circle-dot label_pointer"></i> <b> Profile :</b> {data?.profile ?? ""}
                         </span>
+
                         <span>
-                            <i className="fa-solid fa-circle-dot label_pointer"></i> <b>Created :</b> {data.createdBy ?? ""}
-                        </span>
-                        <span>
-                            <i className="fa-solid fa-circle-dot label_pointer"></i> <b>Created by (ID) :</b> {data.createdById ?? ""}
+                            <i className="fa-solid fa-circle-dot label_pointer"></i> <b>Created by (ID) :</b> {data.createdBy ?? ""}
+                            {`(${data.createdById ?? ""})`}
                         </span>
 
                         <span>
                             <i className="fa-solid fa-circle-dot label_pointer"></i> <b>Status :</b> {data.status ?? ""}
+                        </span>
+                        <span>
+                            <i className="fa-solid fa-circle-dot label_pointer"></i> <b>Approved :</b> {data?.approved ? "Yes" : "No" ?? ""}
                         </span>
                         <span>
                             <i className="fa-solid fa-circle-dot label_pointer"></i> <b> Date of joining :</b> {moment(data.dateOfJoining).format("DD-MM-YYYY") ?? ""}

@@ -62,15 +62,15 @@ const Header = () => {
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item dropdown header-user">
                         <Link className="nav-link" to="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div className="float-left img-profile rounded-circle">
-                                {userData && userData.profilePic ? <img src={ userData.profilePic} alt="" /> : <img className="img-profile rounded-circle" src={userImg} alt="" />}
-                            </div>
+                            <div className="float-left img-profile rounded-circle">{userData && userData.profilePic ? <img src={userData.profilePic} alt="" /> : <img className="img-profile rounded-circle" src={userImg} alt="" />}</div>
                             {!isMobileDevice && (
                                 <div className="float-right">
                                     <div className="text-gray-600 small">
                                         <strong>{userData.name}</strong>
                                     </div>
-                                    <div className="text-gray-600 small">{userData.role}</div>
+                                    <div className="text-gray-600 small">
+                                        {userData.role} ({userData.profile})
+                                    </div>
                                 </div>
                             )}
                         </Link>
@@ -79,7 +79,9 @@ const Header = () => {
                                 <div>
                                     <div className="bg-sidebar">
                                         <div className="user-role">
-                                            {userData.name} ( {userData.role} )
+                                            {userData.name}
+                                            <br />
+                                            {userData.role}({userData.profile} )
                                         </div>
                                     </div>
                                 </div>
@@ -88,11 +90,6 @@ const Header = () => {
                             <Link className="dropdown-item" to={"/profile/" + userData.role}>
                                 <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
                             </Link>
-                            {userData.role === "ALC" && (
-                                <Link className="dropdown-item" to={"/office-profile/"}>
-                                    <i className="fa-solid fa-briefcase"></i> Office Profile
-                                </Link>
-                            )}
 
                             <Link className="dropdown-item" to="#" onClick={handleShow}>
                                 <i className="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i> Change Password

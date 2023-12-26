@@ -21,7 +21,7 @@ const links = [
     {
         link: "/super-admin-list",
         label: "Super Admin List",
-        icon: "fa-solid fa-house-chimney",
+        icon: "fa-solid fa-database",
         access: ["CEO"],
     },
     {

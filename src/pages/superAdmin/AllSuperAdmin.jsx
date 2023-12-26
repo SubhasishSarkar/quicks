@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { fetcher } from "../../utils";
 import TableList from "../../components/table/TableList";
 import moment from "moment";
-import { Button } from "react-bootstrap";
+import { Badge, Button } from "react-bootstrap";
 
 function AllSuperAdmin() {
     const navigate = useNavigate();
@@ -65,12 +65,15 @@ function AllSuperAdmin() {
             field: "approved",
             headerName: "Approved",
             renderHeader: (props) => {
-                return props.approved ? "Yes" : "No";
+                return props.approved ? <Badge bg="success">Yes</Badge> : <Badge bg="danger">No</Badge>;
             },
         },
         {
             field: "status",
             headerName: "Status",
+            renderHeader: (props) => {
+                return props.status === "enabled" ? <Badge bg="success">Enabled</Badge> : <Badge bg="danger">Disabled</Badge>;
+            },
         },
         {
             field: 1,
@@ -99,7 +102,8 @@ function AllSuperAdmin() {
     };
     return (
         <div>
-            <TableList data={{ data: data.perPageSuperAdmins }} isLoading={isLoading || isFetching} error={error} tableHeader={columns} handlePagination={handleLimit} pageLimit={searchParams.get("limit")} />
+            {/* handlePagination={handleLimit} pageLimit={searchParams.get("limit")} */}
+            <TableList data={{ data: data.perPageSuperAdmins }} isLoading={isLoading || isFetching} error={error} tableHeader={columns} disablePagination />
         </div>
     );
 }

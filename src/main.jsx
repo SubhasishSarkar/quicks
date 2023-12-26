@@ -11,6 +11,7 @@ import store from "./store";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import ConfirmDialogProvider from "react-confirm-window";
 const queryClient = new QueryClient({
     defaultOptions: { queries: { staleTime: Infinity, refetchIntervalInBackground: false, refetchInterval: false, refetchOnMount: false, refetchOnReconnect: true, refetchOnWindowFocus: false, retry: false, retryOnMount: false, cacheTime: 0 } },
 });
@@ -19,7 +20,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <QueryClientProvider client={queryClient}>
             <Provider store={store}>
-                <RouterProvider router={router} />
+                <ConfirmDialogProvider>
+                    <RouterProvider router={router} />
+                </ConfirmDialogProvider>
+
                 <ToastContainer position="top-center" autoClose={5000} newestOnTop={false} closeOnClick={false} rtl={false} pauseOnFocusLoss={false} draggable={false} theme="colored" style={{ width: "550px" }} />
             </Provider>
             <ReactQueryDevtools initialIsOpen={false} />
