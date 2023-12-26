@@ -9,6 +9,7 @@ import PageNotFound from "./components/PageNotFound";
 import RoleRestriction from "./pages/admin/RoleRestriction";
 import AllSuperAdmin from "./pages/superAdmin/AllSuperAdmin";
 import SuperAdminViewDetails from "./pages/superAdmin/SuperAdminViewDetails";
+import AddSuperAdmin from "./pages/superAdmin/AddSuperAdmin";
 
 const router = createBrowserRouter(
     [
@@ -45,6 +46,10 @@ const router = createBrowserRouter(
                                 {
                                     path: "/super-admin-view-details/:id",
                                     element: <SuperAdminViewDetails />,
+                                },
+                                {
+                                    path: "/add-super-admin",
+                                    element: <AddSuperAdmin />,
                                 },
                             ],
                         },
