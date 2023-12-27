@@ -10,6 +10,8 @@ import RoleRestriction from "./pages/admin/RoleRestriction";
 import AllSuperAdmin from "./pages/superAdmin/AllSuperAdmin";
 import SuperAdminViewDetails from "./pages/superAdmin/SuperAdminViewDetails";
 import AddSuperAdmin from "./pages/superAdmin/AddSuperAdmin";
+import ChangePassword from "./pages/superAdmin/ChangePassword";
+import ForgotPassword from "./pages/superAdmin/ForgotPassword";
 
 const router = createBrowserRouter(
     [
@@ -20,6 +22,10 @@ const router = createBrowserRouter(
         {
             path: "/login",
             element: <Login />,
+        },
+        {
+            path: "/forgot-password",
+            element: <ForgotPassword />,
         },
         {
             path: "*",
@@ -51,6 +57,11 @@ const router = createBrowserRouter(
                                     path: "/add-super-admin",
                                     element: <AddSuperAdmin />,
                                 },
+                                {
+                                    path: "/change-password",
+                                    element: <ChangePassword />,
+                                },
+                               
                             ],
                         },
                     ],

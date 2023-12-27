@@ -136,19 +136,11 @@ const AddSuperAdmin = () => {
                         </div>
 
                         <div className="col-md-3">
-                            <label htmlFor="role" className="form-label">
+                            <label className="form-label" htmlFor="role">
                                 Role {form.role.required && <span className="text-danger">*</span>}
                             </label>
-                            <RoleSelect
-                                className={`form-select ${form.role.error && "is-invalid"}`}
-                                id="role"
-                                name="role"
-                                required={form.role.required}
-                                value={form.role.value}
-                                onChange={(e) => handleChange({ name: "role", value: e.currentTarget.value })}
-                            />
-                                                        <div className="invalid-feedback">{form.role.error}</div>
-
+                            <input placeholder="Role" className={`form-control ${form.role.error && "is-invalid"}`} type="text" value={form.role.value} name="role" id="role" onChange={(e) => handleChange(e.currentTarget)} />
+                            <div className="invalid-feedback">{form.role.error}</div>
                         </div>
                         <div className="col-md-3">
                             <label className="form-label" htmlFor="imageUrl">

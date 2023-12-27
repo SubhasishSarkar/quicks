@@ -24,6 +24,13 @@ const links = [
         icon: "fa-solid fa-house-chimney",
         access: ["CEO"],
     },
+    {
+        link: "/change-password",
+        label: "Change Password",
+        icon: "fa-solid fa-house-chimney",
+        access: ["CEO"],
+    },
+
    
 ];
 
