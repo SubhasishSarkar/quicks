@@ -19,8 +19,8 @@ const links = [
         access: ["CEO"],
     },
     {
-        link: "/add-super-admin",
-        label: "Add Super Admin",
+        link: "/change-password",
+        label: "Change Password",
         icon: "fa-solid fa-house-chimney",
         access: ["CEO"],
     },

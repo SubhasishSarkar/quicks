@@ -104,17 +104,6 @@ const Login = () => {
         <div className="d-flex justify-content-center align-items-center h-100  login">
 
         <Card>
-                {/* <div className="login-bg">
-                    <div className="row">
-                        <div className="col-md-12 col-lg-8 ml-auto">
-                            <div className="logo">
-                                <Link to="/">
-                                   QUICKS
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
 
                <Card.Body>
 
@@ -180,26 +169,13 @@ const Login = () => {
                         </div>
 
                         <div className="col-md-12 mb-4">
-                            <Link to="#" className="text-dark" style={{ float: "left", textDecoration: "none" }} onClick={() => forgetPass()}>
+                            <Link to="/forgot-password" className="text-dark" style={{ float: "left", textDecoration: "none" }}>
                                 <i className="fas fa-unlock-alt"></i> Forgot Password?
                             </Link>
-
-                            {/* <Link to="/" className="text-dark" style={{ float: "right", textDecoration: "none" }}>
-                                <i className="fas fa-home"></i> Back To Home
-                            </Link> */}
                         </div>
                     </form>
                 </Card.Body>
         </Card>
-            {/* <div className="form-footer">
-                <div className="copyright" style={{ float: "right" }}>
-                    <span className="float-right">
-                        <Link to="https://www.quicks.com" target="_blank" rel="noreferrer">
-                            QUICKS
-                        </Link>
-                    </span>
-                </div>
-            </div> */}
          
         </div>
     );
