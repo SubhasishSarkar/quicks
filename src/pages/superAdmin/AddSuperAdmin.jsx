@@ -3,7 +3,6 @@ import { useValidate } from "../../hooks";
 import { useDispatch } from "react-redux";
 import { setPageAddress } from "../../store/slices/headerTitleSlice";
 import moment from "moment";
-import RoleSelect from "../../components/select/RoleSelect";
 import { toast } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
 import { updater } from "../../utils";
@@ -131,55 +130,54 @@ const AddSuperAdmin = () => {
                         <div className="invalid-feedback">{form.dateOfJoining.error}</div>
                     </div>
 
-                        <div className="col-md-3">
-                            <label className="form-label" htmlFor="role">
-                                Role {form.role.required && <span className="text-danger">*</span>}
-                            </label>
-                            <input placeholder="Role" className={`form-control ${form.role.error && "is-invalid"}`} type="text" value={form.role.value} name="role" id="role" onChange={(e) => handleChange(e.currentTarget)} />
-                            <div className="invalid-feedback">{form.role.error}</div>
-                        </div>
-                        <div className="col-md-3">
-                            <label className="form-label" htmlFor="imageUrl">
-                                Image {form.imageUrl.required && <span className="text-danger">*</span>}
-                            </label>
-                            <input
-                                placeholder="Upload image"
-                                className={`form-control ${form.imageUrl.error && "is-invalid"}`}
-                                type="file"
-                                accept="image/*"
-                                value={form.imageUrl.value}
-                                name="imageUrl"
-                                id="imageUrl"
-                                onChange={(e) => handleChange(e.currentTarget)}
-                            />
-                            <div className="invalid-feedback">{form.imageUrl.error}</div>
-                        </div>
-                        <div className="col-md-6">
-                            <label htmlFor="address" className="form-label">
-                                Address {form.address.required && <span className="text-danger">*</span>}
-                            </label>
-                            <textarea
-                                className={`form-control ${form.address.error && "is-invalid"}`}
-                                id="address"
-                                name="address"
-                                rows={3}
-                                required={form.address.required}
-                                value={form.address.value}
-                                onChange={(e) => handleChange({ name: "address", value: e.currentTarget.value })}
-                            />
-                            <div className="invalid-feedback">{form.address.error}</div>
-                        </div>
+                    <div className="col-md-3">
+                        <label className="form-label" htmlFor="role">
+                            Role {form.role.required && <span className="text-danger">*</span>}
+                        </label>
+                        <input placeholder="Role" className={`form-control ${form.role.error && "is-invalid"}`} type="text" value={form.role.value} name="role" id="role" onChange={(e) => handleChange(e.currentTarget)} />
+                        <div className="invalid-feedback">{form.role.error}</div>
+                    </div>
+                    <div className="col-md-3">
+                        <label className="form-label" htmlFor="imageUrl">
+                            Image {form.imageUrl.required && <span className="text-danger">*</span>}
+                        </label>
+                        <input
+                            placeholder="Upload image"
+                            className={`form-control ${form.imageUrl.error && "is-invalid"}`}
+                            type="file"
+                            accept="image/*"
+                            value={form.imageUrl.value}
+                            name="imageUrl"
+                            id="imageUrl"
+                            onChange={(e) => handleChange(e.currentTarget)}
+                        />
+                        <div className="invalid-feedback">{form.imageUrl.error}</div>
+                    </div>
+                    <div className="col-md-6">
+                        <label htmlFor="address" className="form-label">
+                            Address {form.address.required && <span className="text-danger">*</span>}
+                        </label>
+                        <textarea
+                            className={`form-control ${form.address.error && "is-invalid"}`}
+                            id="address"
+                            name="address"
+                            rows={3}
+                            required={form.address.required}
+                            value={form.address.value}
+                            onChange={(e) => handleChange({ name: "address", value: e.currentTarget.value })}
+                        />
+                        <div className="invalid-feedback">{form.address.error}</div>
                     </div>
                 </div>
-                <div className="card-footer">
-                    <div className="d-grid d-md-flex justify-content-md-end">
-                        <button className="btn btn-success" type="submit">
-                            Add {/* {isLoading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <i className="fa-solid fa-floppy-disk"></i>} Save Draft & Proceed */}
-                        </button>
-                    </div>
+            </div>
+            <div className="card-footer">
+                <div className="d-grid d-md-flex justify-content-md-end">
+                    <button className="btn btn-success" type="submit">
+                        Add {/* {isLoading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <i className="fa-solid fa-floppy-disk"></i>} Save Draft & Proceed */}
+                    </button>
                 </div>
-            </form>
-        </>
+            </div>
+        </form>
     );
 };
 

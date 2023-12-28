@@ -57,11 +57,6 @@ const router = createBrowserRouter(
                                     path: "/add-super-admin",
                                     element: <AddSuperAdmin />,
                                 },
-                                {
-                                    path: "/change-password",
-                                    element: <ChangePassword />,
-                                },
-                               
                             ],
                         },
                     ],

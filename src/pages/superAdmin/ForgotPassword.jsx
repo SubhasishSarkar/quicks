@@ -1,11 +1,8 @@
-
 import React, { useState } from "react";
 import { useValidate } from "../../hooks";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
-
-
 
 const ForgotPassword = () => {
     const [loading, setLoading] = useState(false);
@@ -14,7 +11,6 @@ const ForgotPassword = () => {
         dateOfBirth: { value: "", validate: "required" },
         aadharNo: { value: "", validate: "required" },
     });
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,8 +29,8 @@ const ForgotPassword = () => {
             });
             if (res.ok) {
                 const data = await res.json();
-                console.log(data)
-                
+                setLoading(false);
+                toast.success(data.message);
             } else {
                 const data = await res.json();
                 //setError(data.message);
@@ -47,39 +43,22 @@ const ForgotPassword = () => {
         }
     };
 
-   
-
     const handleChange = (e) => {
         validator.validOnChange(e);
     };
 
-
     return (
         <div className="d-flex justify-content-center align-items-center h-100  login">
-
-        <Card>
-
-               <Card.Body>
-
+            <Card>
+                <Card.Body>
                     <form onSubmit={handleSubmit}>
                         <div className="col-md-12 mb-4">
                             <h1>Forgot Password</h1>
-                           
                         </div>
 
                         <div className="col-md-12 mb-4">
                             <div className="form-floating custom-form-login">
-                              
-                                <input
-                                    type="text"
-                                    className={`form-control ${form._id.error && "is-invalid"}`}
-                                    id="_id"
-                                    name="_id"
-                                    placeholder="_id"
-                                    required=""
-                                    onChange={(e) => handleChange(e.currentTarget)}
-                                    value={form._id.value}
-                                />
+                                <input type="text" className={`form-control ${form._id.error && "is-invalid"}`} id="_id" name="_id" placeholder="_id" required="" onChange={(e) => handleChange(e.currentTarget)} value={form._id.value} />
                                 <label htmlFor="_id" className="form-control-label floating-label">
                                     Enter Your id
                                 </label>
@@ -88,7 +67,6 @@ const ForgotPassword = () => {
                         </div>
                         <div className="col-md-12 mb-4">
                             <div className="form-floating custom-form-login">
-                                
                                 <input
                                     type="date"
                                     className={`form-control ${form.dateOfBirth.error && "is-invalid"}`}
@@ -107,7 +85,6 @@ const ForgotPassword = () => {
                         </div>
                         <div className="col-md-12 mb-4">
                             <div className="form-floating custom-form-login">
-                               
                                 <input
                                     type="text"
                                     className={`form-control ${form.aadharNo.error && "is-invalid"}`}
@@ -119,7 +96,7 @@ const ForgotPassword = () => {
                                     value={form.aadharNo.value}
                                 />
                                 <label htmlFor="aadharNo" className="form-control-label floating-label">
-                                Aadhaar No.
+                                    Aadhaar No.
                                 </label>
                             </div>
                             {form.aadharNo.error && <div className="text-danger">{form.aadharNo.error}</div>}
@@ -137,8 +114,7 @@ const ForgotPassword = () => {
                         </div>
                     </form>
                 </Card.Body>
-        </Card>
-         
+            </Card>
         </div>
     );
 };
