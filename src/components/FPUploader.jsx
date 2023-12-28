@@ -147,11 +147,7 @@ const FPUploader = ({ title, description, acceptedFileTypes, minFileSize, maxFil
 
                     {uploaded && (
                         <>
-                            <div className="filepond_section_view" style={{ backgroundColor: "rgb(181 181 181)" }}>
-                                <a target="_blank" rel="noreferrer" referrerPolicy="no-referrer" href={uploaded} style={{ textDecoration: "none" }}>
-                                    <i className="fa-solid fa-mountain-sun"></i> View
-                                </a>
-                            </div>
+                            <div className="filepond_section_view" style={{ backgroundColor: "rgb(181 181 181)" }}></div>
                             <div className="filepond_section_btn">
                                 <button className="btn btn-danger btn-sm" type="button" onClick={handleFileDelete} disabled={fileLoading}>
                                     {fileLoading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <i className="fa-solid fa-trash-can"></i>} Remove

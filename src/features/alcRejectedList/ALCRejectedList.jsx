@@ -106,10 +106,6 @@ function ALCRejectedList() {
             renderHeader: (item) => {
                 return (
                     <>
-                        <Link style={{ marginRight: "3px" }} className="btn btn-sm btn-primary" to={`/beneficiary-details/${item.application_id}/bmssy`} target="_blank" rel="noreferrer">
-                            View <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                        </Link>
-
                         <button
                             type="button"
                             className="btn btn-sm btn-success"

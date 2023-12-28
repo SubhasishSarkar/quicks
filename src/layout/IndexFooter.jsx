@@ -10,11 +10,7 @@ const IndexFooter = () => {
             <div className="container wow fadeIn py-3">
                 <div className="row align-items-center">
                     <div className="col-xl-2 col-lg-3 col-md-4 col-sm-12">
-                        <div className="d-flex flex-column align-items-md-start justify-content-sm-center">
-                            <Link to="http://www.nic.in/" target="_blank" rel="noreferrer">
-                                <img src={ssy_nic_logo} alt="Design By NIC" className="" />
-                            </Link>
-                        </div>
+                        <div className="d-flex flex-column align-items-md-start justify-content-sm-center"></div>
                     </div>
                     <div className="col-xl-8 col-lg-7 col-md-5 col-sm-12">
                         <p>
