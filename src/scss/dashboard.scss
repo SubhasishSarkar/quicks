@@ -32,10 +32,10 @@ a:focus {
     height: 100%;
     display: flex;
     align-items: stretch;
-    background: #000e2a;
+    background: #254061;
 }
 .bmssy-logo img {
-    width: 52px;
+    width: 50%;
     margin-bottom: 10px;
     margin-right: 10px;
 }
@@ -51,7 +51,7 @@ a:focus {
     overflow-y: auto;
     min-width: 260px;
     max-width: 260px;
-    background: rgba(0, 12, 37, 1);
+    background: #254061;
     transition: all 0.3s;
     position: relative;
     padding: 16px;
@@ -200,7 +200,7 @@ a:focus {
     text-decoration: none;
     font-weight: 600;
     background: #fff;
-    color: #0d2350;
+    color: #254061;
     border-radius: 100px;
 }
 #sidebar ul li.active > a:after {
@@ -220,7 +220,7 @@ a:focus {
     width: 100vw;
     position: absolute;
     z-index: 90;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #254061;
 }
 
 a[data-toggle="collapse"] {
@@ -239,11 +239,11 @@ a[data-toggle="collapse"] {
     border-bottom-left-radius: 8% 50%;
 }
 #sidebar ul.pageSubmenu li a {
-    color: #001848;
+    color: #254061;
 }
 .navbar-nav a:hover,
 .navbar-nav a:focus {
-    color: #001848 !important;
+    color: #254061 !important;
 }
 
 // .toggle_menu.toggle-menu-custom{posi}
@@ -271,7 +271,7 @@ a[data-toggle="collapse"] {
 #content h1 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #001848;
+    color: #254061;
     margin-bottom: 10px;
 }
 #content .breadcrumb {
@@ -337,7 +337,7 @@ a[data-toggle="collapse"] {
     top: 65%;
 }
 .header-user .dropdown-menu {
-    // background: #001848;
+    // background: #254061;
     background: #7573736e;
     backdrop-filter: blur(8px);
     border: 0;
@@ -621,7 +621,7 @@ table.dataTable thead .sorting_desc_disabled:after {
 }
 .card-nav-tabs .nav-tabs .nav-link.active {
     background: #fff;
-    color: #001848;
+    color: #254061;
     font-weight: 600;
 }
 .card-nav-tabs .nav-tabs .nav-link.active::after {
@@ -629,7 +629,7 @@ table.dataTable thead .sorting_desc_disabled:after {
     position: absolute;
     width: 100%;
     height: 3px;
-    background: #001848;
+    background: #254061;
     top: 0;
     left: 0;
 }
@@ -971,10 +971,10 @@ input.form-control:not([size]):not([multiple]) {
         background: #274d9983;
     }
     &--simple::-webkit-scrollbar-thumb:hover {
-        background: #00184883;
+        background: #25406183;
     }
     &--simple::-webkit-scrollbar-thumb:active {
-        background: #00184883;
+        background: #25406183;
     }
 }
 
@@ -1252,7 +1252,7 @@ Nilmoni Patra
 .filepond_section_title {
     font-size: 14.5px;
     font-weight: 500;
-    color: #001848;
+    color: #254061;
 }
 .filepond_section_view {
     height: 50px;

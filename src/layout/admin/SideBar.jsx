@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import useDeviceDetector, { isMobile } from "../../hooks/DeviceDetector";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-
+import quicksLogo from "../../../public/assets/Logo1.png";
 const links = [
     {
         link: "/dashboard",
@@ -24,7 +24,6 @@ const links = [
         icon: "fa-solid fa-house-chimney",
         access: ["CEO"],
     },
-   
 ];
 
 const SideBar = ({ isOpen: isOpenMobile, handleIsOpen: handleIsOpenMobile }) => {
@@ -78,18 +77,16 @@ const SideBar = ({ isOpen: isOpenMobile, handleIsOpen: handleIsOpenMobile }) => 
                 >
                     <div>
                         <div className="sidebar-header bmssy-logo">
-                            <div className="">
-                                <div>
-                                    <NavLink to="/dashboard" style={{ textDecoration: "none" }}>
+                            <img src={quicksLogo} alt="logo" />
+                            {/* <NavLink to="/dashboard" style={{ textDecoration: "none" }}>
                                         <h1 style={{ color: "#d7e3dc" }}>QUICKS</h1>
-                                    </NavLink>
-                                </div>
-                                <div>
-                                    <p className="lh-1 font-monospace text-muted" style={{ fontSize: "11px", display: "flex", cursor: "pointer" }}>
-                                        ADMIN PANEL
-                                    </p>
-                                </div>
-                            </div>
+                                    </NavLink> */}
+
+                            {/* <div>
+                                <p className="lh-1 font-monospace text-muted" style={{ fontSize: "11px", display: "flex", cursor: "pointer" }}>
+                                    ADMIN PANEL
+                                </p>
+                            </div> */}
                         </div>
 
                         <ul className="list-unstyled components">
