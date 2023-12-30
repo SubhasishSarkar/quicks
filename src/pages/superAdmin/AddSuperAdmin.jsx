@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useValidate } from "../../hooks";
 import { useDispatch } from "react-redux";
 import { setPageAddress } from "../../store/slices/headerTitleSlice";
@@ -8,6 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { updater } from "../../utils";
 
 const AddSuperAdmin = () => {
+    const [image, setImage] = useState({ preview: "", data: "" });
     const { mutate } = useMutation(({ body, method, url }) => updater(url, { method: method || "POST", body: body }));
     const dispatch = useDispatch();
 
@@ -29,10 +30,13 @@ const AddSuperAdmin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("form", form);
-        console.error("Error message", form);
+
         if (!validator.validate()) return toast.error("Please fill of all required field");
         const data = validator.generalize();
+        let formData = new FormData();
+        formData.append("file", image.data);
+        data.imageUrl = formData;
+        console.log(data);
         mutate(
             { url: `/super/admin`, body: data },
             {
@@ -146,10 +150,16 @@ const AddSuperAdmin = () => {
                             className={`form-control ${form.imageUrl.error && "is-invalid"}`}
                             type="file"
                             accept="image/*"
-                            value={form.imageUrl.value}
                             name="imageUrl"
                             id="imageUrl"
-                            onChange={(e) => handleChange(e.currentTarget)}
+                            onChange={(e) => {
+                                const img = {
+                                    preview: URL.createObjectURL(e.target.files[0]),
+                                    data: e.target.files[0],
+                                };
+                                setImage(img);
+                                handleChange({ name: "imageUrl", value: e.target.files[0].name });
+                            }}
                         />
                         <div className="invalid-feedback">{form.imageUrl.error}</div>
                     </div>
