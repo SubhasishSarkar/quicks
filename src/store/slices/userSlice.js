@@ -16,32 +16,33 @@ const userSlice = createSlice({
             // console.log("user--slice",user)
 
             state.user = {
-                id: user?.uid,
+                id: user?._id,
                 email: user?.email,
                 name: user?.name,
                 role: user?.role,
                 token: user?.token || localStorage.getItem("quicks_token"),
-                status:user?.status,
-                profile:user?.profile,
-                approved:user?.approved,
-                approveFirm:user?.approveFirm,
-                profilePic:user?.imageUrl
+                status: user?.status,
+                profile: user?.profile,
+                approved: user?.approved,
+                approveFirm: user?.approveFirm,
+                profilePic: user?.imageUrl,
+                aadhaarNo: user?.aadharNo,
             };
         },
         profile(state, action) {
             const user = action.payload;
-            console.log("usss--",user)
             state.user = {
-                id: user?.uid,
+                id: user?._id,
                 email: user?.email,
                 name: user?.name,
                 role: user?.role,
                 token: user?.token || localStorage.getItem("quicks_token"),
-                status:user?.status,
-                profile:user?.profile,
-                approved:user?.approved,
-                approveFirm:user?.approveFirm,
-                profilePic:user?.imageUrl
+                status: user?.status,
+                profile: user?.profile,
+                approved: user?.approved,
+                approveFirm: user?.approveFirm,
+                profilePic: user?.imageUrl,
+                aadhaarNo: user?.aadharNo,
             };
         },
         //handle multiple tab , user states

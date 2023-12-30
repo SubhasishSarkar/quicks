@@ -10,6 +10,7 @@ import AllSuperAdmin from "./pages/superAdmin/AllSuperAdmin";
 import SuperAdminViewDetails from "./pages/superAdmin/SuperAdminViewDetails";
 import AddSuperAdmin from "./pages/superAdmin/AddSuperAdmin";
 import ForgotPassword from "./pages/superAdmin/ForgotPassword";
+import Profile from "./pages/Profile";
 
 const router = createBrowserRouter(
     [
@@ -51,6 +52,10 @@ const router = createBrowserRouter(
                         {
                             path: "/add-super-admin",
                             element: <AddSuperAdmin />,
+                        },
+                        {
+                            path: "/profile/:role",
+                            element: <Profile />,
                         },
                     ],
                 },

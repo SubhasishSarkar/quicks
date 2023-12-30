@@ -1,29 +1,29 @@
-import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPageAddress } from "../../store/slices/headerTitleSlice";
+import userSlice from "../../store/slices/userSlice";
 import LoadingSpinner from "../../components/list/LoadingSpinner";
 import ErrorAlert from "../../components/list/ErrorAlert";
-import { useDispatch } from "react-redux";
-import { fetcher } from "../../utils";
-import { setPageAddress } from "../../store/slices/headerTitleSlice";
 import SuperAdminViewDeatils from "../../features/SuperAdminViewDeatils";
+import { fetcher } from "../../utils";
 
-const SuperAdminViewDetails = (props) => {
-    const { id } = useParams();
+function SuperAdminProfile() {
+    const { id, profile } = useSelector((state) => state.user.user);
     const { error, data, isFetching } = useQuery(["/super/admin/", id], () => fetcher(`/super/admin/${id}`), { enabled: id ? true : false });
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(setPageAddress({ title: "Super Admin List", url: "/super-admin-list", subTitle: "Super Admin Details", subUrl: "" }));
-    }, [id]);
+        dispatch(setPageAddress({ title: "Profile", url: "/profile/" + profile }));
+    }, [profile]);
 
     return (
-        <>
+        <div>
             {error && <ErrorAlert error={error} />}
             {isFetching && <LoadingSpinner />}
             {data && <SuperAdminViewDeatils data={data?.superAdmin} />}
-        </>
+        </div>
     );
-};
+}
 
-export default SuperAdminViewDetails;
+export default SuperAdminProfile;

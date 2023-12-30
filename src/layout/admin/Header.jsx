@@ -87,7 +87,7 @@ const Header = () => {
                                 </div>
                             )}
 
-                            <Link className="dropdown-item" to={"/profile/" + userData.role}>
+                            <Link className="dropdown-item" to={"/profile/" + userData.profile}>
                                 <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
                             </Link>
 
