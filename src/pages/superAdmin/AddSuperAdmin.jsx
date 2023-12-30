@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { updater } from "../../utils";
 
 const AddSuperAdmin = () => {
-    const { mutate, isLoading } = useMutation(({ body, method, url }) => updater(url, { method: method || "POST", body: body }));
+    const { mutate } = useMutation(({ body, method, url }) => updater(url, { method: method || "POST", body: body }));
     const dispatch = useDispatch();
 
     useEffect(() => {

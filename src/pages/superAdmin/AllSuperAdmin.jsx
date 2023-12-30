@@ -11,7 +11,7 @@ import { Badge, Button } from "react-bootstrap";
 function AllSuperAdmin() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     useEffect(() => {
         dispatch(setPageAddress({ title: "Super Admin List", url: "" }));
     }, []);
@@ -96,10 +96,10 @@ function AllSuperAdmin() {
     if (isLoading || isFetching || error) {
         return <p>Loading...</p>;
     }
-    const handleLimit = (val) => {
-        searchParams.set("limit", val);
-        setSearchParams(searchParams);
-    };
+    // const handleLimit = (val) => {
+    //     searchParams.set("limit", val);
+    //     setSearchParams(searchParams);
+    // };
     return (
         <div>
             {/* handlePagination={handleLimit} pageLimit={searchParams.get("limit")} */}

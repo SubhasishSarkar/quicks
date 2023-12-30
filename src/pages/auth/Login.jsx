@@ -7,9 +7,7 @@ import { useValidate } from "../../hooks";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
-
-
-
+import { useConfirm } from "react-confirm-window";
 const Login = () => {
     const [token, setToken] = useState("");
     const dispatch = useDispatch();
@@ -18,13 +16,18 @@ const Login = () => {
     const [form, validator] = useValidate({
         id: { value: "", validate: "required", error: null },
         password: { value: "", validate: "required", error: null },
-       
     });
 
     const [isVisibleOld, setVisibleOld] = useState(false);
-
+    const confirm = useConfirm();
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const choice = await confirm({
+            header: "Please Confirm",
+            title: "Are you sure you want to delete?",
+            closeButtonLable: "No",
+            confirmButtonLable: "Yes",
+        });
 
         // check that all the field are valid
         if (!validator.validate()) return;
@@ -34,7 +37,7 @@ const Login = () => {
 
         // get the key value pair of the formSchema
         const values = validator.generalize();
-    
+
         setLoading(true);
         try {
             const res = await fetch(process.env.APP_BASE_API + "/super/admin/sign-in", {
@@ -47,16 +50,16 @@ const Login = () => {
             });
             if (res.ok) {
                 const data = await res.json();
-                console.log(res)
+
                 localStorage.clear();
                 dispatch(login({ ...data.superAdmin, token: data.token }));
                 toast.success("Login Successfully");
-                document.cookie = "token="+data.token;
+                document.cookie = "token=" + data.token;
                 localStorage.setItem("quicks_token", data.token);
                 navigate("/dashboard");
             } else {
                 const data = await res.json();
-                //setError(data.message);
+
                 toast.error(data.message);
                 throw Error(data.message);
             }
@@ -66,7 +69,6 @@ const Login = () => {
         }
     };
 
-   
     const onFocus = () => {
         setToken(localStorage.getItem("quicks_token"));
     };
@@ -78,7 +80,6 @@ const Login = () => {
         };
     }, []);
 
-   
     if (token) return <Navigate to="/dashboard" />;
 
     const handleChange = (e) => {
@@ -96,21 +97,13 @@ const Login = () => {
         color: "#817c7c",
     };
 
-    const forgetPass = () => {
-        toast.warning("Coming soon...");
-    };
-
     return (
         <div className="d-flex justify-content-center align-items-center h-100  login">
-
-        <Card>
-
-               <Card.Body>
-
+            <Card>
+                <Card.Body>
                     <form onSubmit={handleSubmit}>
                         <div className="col-md-12 mb-4">
                             <h1>Sign in to Continue</h1>
-                           
                         </div>
 
                         <div className="col-md-12 mb-4">
@@ -118,16 +111,7 @@ const Login = () => {
                                 <span className="form-icon">
                                     <i className="fas fa-user"></i>
                                 </span>
-                                <input
-                                    type="text"
-                                    className={`form-control ${form.id.error && "is-invalid"}`}
-                                    id="id"
-                                    name="id"
-                                    placeholder="id"
-                                    required=""
-                                    onChange={(e) => handleChange(e.currentTarget)}
-                                    value={form.id.value}
-                                />
+                                <input type="text" className={`form-control ${form.id.error && "is-invalid"}`} id="id" name="id" placeholder="id" required="" onChange={(e) => handleChange(e.currentTarget)} value={form.id.value} />
                                 <label htmlFor="id" className="form-control-label floating-label">
                                     Enter Your id
                                 </label>
@@ -159,9 +143,7 @@ const Login = () => {
                             {form.password.error && <div className="text-danger">{form.password.error}</div>}
                         </div>
 
-                        <div className="col-md-12 mb-4">
-                            
-                        </div>
+                        <div className="col-md-12 mb-4"></div>
                         <div className="col-md-12 mb-4">
                             <button className="btn" type="submit" disabled={loading}>
                                 {loading && <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>} Login
@@ -175,8 +157,7 @@ const Login = () => {
                         </div>
                     </form>
                 </Card.Body>
-        </Card>
-         
+            </Card>
         </div>
     );
 };

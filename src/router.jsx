@@ -6,7 +6,6 @@ import AuthProvider from "./provider/AuthProvider";
 
 import PageNotFound from "./components/PageNotFound";
 
-import RoleRestriction from "./pages/admin/RoleRestriction";
 import AllSuperAdmin from "./pages/superAdmin/AllSuperAdmin";
 import SuperAdminViewDetails from "./pages/superAdmin/SuperAdminViewDetails";
 import AddSuperAdmin from "./pages/superAdmin/AddSuperAdmin";
@@ -35,28 +34,23 @@ const router = createBrowserRouter(
             element: <AuthProvider />,
             children: [
                 {
-                    element: <RoleRestriction />,
+                    element: <AdminLayout />,
                     children: [
                         {
-                            element: <AdminLayout />,
-                            children: [
-                                {
-                                    path: "/dashboard",
-                                    element: <Dashboard />,
-                                },
-                                {
-                                    path: "/super-admin-list",
-                                    element: <AllSuperAdmin />,
-                                },
-                                {
-                                    path: "/super-admin-view-details/:id",
-                                    element: <SuperAdminViewDetails />,
-                                },
-                                {
-                                    path: "/add-super-admin",
-                                    element: <AddSuperAdmin />,
-                                },
-                            ],
+                            path: "/dashboard",
+                            element: <Dashboard />,
+                        },
+                        {
+                            path: "/super-admin-list",
+                            element: <AllSuperAdmin />,
+                        },
+                        {
+                            path: "/super-admin-view-details/:id",
+                            element: <SuperAdminViewDetails />,
+                        },
+                        {
+                            path: "/add-super-admin",
+                            element: <AddSuperAdmin />,
                         },
                     ],
                 },

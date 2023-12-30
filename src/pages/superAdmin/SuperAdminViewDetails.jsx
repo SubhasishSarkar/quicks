@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import LoadingSpinner from "../../components/list/LoadingSpinner";
 import ErrorAlert from "../../components/list/ErrorAlert";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetcher } from "../../utils";
 import { setPageAddress } from "../../store/slices/headerTitleSlice";
 import SuperAdminViewDeatils from "../../features/SuperAdminViewDeatils";
@@ -16,8 +16,6 @@ const SuperAdminViewDetails = () => {
     useEffect(() => {
         dispatch(setPageAddress({ title: "Super Admin List", url: "/super-admin-list", subTitle: "Super Admin Details", subUrl: "" }));
     }, [id]);
-
-    const user = useSelector((state) => state.user.user);
 
     return (
         <>
