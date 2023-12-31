@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPageAddress } from "../../store/slices/headerTitleSlice";
-import userSlice from "../../store/slices/userSlice";
 import LoadingSpinner from "../../components/list/LoadingSpinner";
 import ErrorAlert from "../../components/list/ErrorAlert";
 import SuperAdminViewDeatils from "../../features/SuperAdminViewDeatils";
