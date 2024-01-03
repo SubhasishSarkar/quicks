@@ -19,15 +19,15 @@ const Login = () => {
     });
 
     const [isVisibleOld, setVisibleOld] = useState(false);
-    const confirm = useConfirm();
+    //const confirm = useConfirm();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const choice = await confirm({
-            header: "Please Confirm",
-            title: "Are you sure you want to delete?",
-            closeButtonLable: "No",
-            confirmButtonLable: "Yes",
-        });
+        // const choice = await confirm({
+        //     header: "Please Confirm",
+        //     title: "Are you sure you want to delete?",
+        //     closeButtonLable: "No",
+        //     confirmButtonLable: "Yes",
+        // });
 
         // check that all the field are valid
         if (!validator.validate()) return;
