@@ -12,7 +12,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ConfirmDialogProvider from "react-confirm-window";
-const ConfirmDialogProviderX = ConfirmDialogProvider.defult ? ConfirmDialogProvider.default : ConfirmDialogProvider;
+const ConfirmDialogProviderX = ConfirmDialogProvider.default ? ConfirmDialogProvider.default : ConfirmDialogProvider;
 const queryClient = new QueryClient({
     defaultOptions: { queries: { staleTime: Infinity, refetchIntervalInBackground: false, refetchInterval: false, refetchOnMount: false, refetchOnReconnect: true, refetchOnWindowFocus: false, retry: false, retryOnMount: false, cacheTime: 0 } },
 });
