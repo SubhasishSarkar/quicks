@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPageAddress } from "../../store/slices/headerTitleSlice";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -7,8 +7,10 @@ import { fetcher } from "../../utils";
 import TableList from "../../components/table/TableList";
 import moment from "moment";
 import { Badge, Button } from "react-bootstrap";
+import FilterList from "../../components/SuperAdmin/FilterList";
 
 function AllSuperAdmin() {
+    const user = useSelector((state) => state.user.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [searchParams] = useSearchParams();
@@ -22,6 +24,10 @@ function AllSuperAdmin() {
         {
             field: 0,
             headerName: "SL No.",
+        },
+        {
+            field: "_id",
+            headerName: "ID",
         },
         {
             field: "name",
@@ -80,14 +86,29 @@ function AllSuperAdmin() {
             headerName: "Actions",
             renderHeader: (props) => {
                 return (
-                    <Button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            navigate(`/super-admin-view-details/${props._id}`);
-                        }}
-                    >
-                        View
-                    </Button>
+                    <>
+                        <Button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                navigate(`/super-admin-view-details/${props._id}`);
+                            }}
+                        >
+                            View
+                        </Button>
+
+                        {user.approved && !props.approved && (
+                            <Button
+                                variant="success"
+                                className="ms-2"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    navigate(`/super-admin-view-details/${props._id}`);
+                                }}
+                            >
+                                Approve
+                            </Button>
+                        )}
+                    </>
                 );
             },
         },
@@ -103,6 +124,7 @@ function AllSuperAdmin() {
     return (
         <div>
             {/* handlePagination={handleLimit} pageLimit={searchParams.get("limit")} */}
+            <FilterList isFetching={isFetching} isLoading={isLoading} />
             <TableList data={{ data: data.perPageSuperAdmins }} isLoading={isLoading || isFetching} error={error} tableHeader={columns} disablePagination />
         </div>
     );

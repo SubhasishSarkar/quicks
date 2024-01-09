@@ -55,6 +55,9 @@ function BasicDetails({ data }) {
                         <div className="card-body">
                             <div className="ben_details_section mb-0" style={{ fontWeight: "500" }}>
                                 <span>
+                                    <i className="fa-solid fa-circle-dot label_pointer"></i> <b>ID :</b> {data._id ?? ""}
+                                </span>
+                                <span>
                                     <i className="fa-solid fa-circle-dot label_pointer"></i> <b>Role :</b> {data.role ?? ""}
                                 </span>
                                 <span>

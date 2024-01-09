@@ -6,10 +6,13 @@ import moment from "moment";
 import { toast } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
 import { updater } from "../../utils";
+import { convertBase64 } from "../../utils/quicks";
+import { useNavigate } from "react-router";
 
 const AddSuperAdmin = () => {
+    const navigate = useNavigate();
     const [image, setImage] = useState({ preview: "", data: "" });
-    const { mutate } = useMutation(({ body, method, url }) => updater(url, { method: method || "POST", body: body }));
+    const { mutate, isLoading } = useMutation(({ body, method, url }) => updater(url, { method: method || "POST", body: body }));
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -33,15 +36,15 @@ const AddSuperAdmin = () => {
 
         if (!validator.validate()) return toast.error("Please fill of all required field");
         const data = validator.generalize();
-        let formData = new FormData();
-        formData.append("file", image.data);
-        data.imageUrl = formData;
+
+        data.imageUrl = await convertBase64(image.data);
         console.log(data);
         mutate(
             { url: `/super/admin`, body: data },
             {
                 onSuccess(data, variables, context) {
                     toast.success("Successfully update basic details");
+                    navigate("/super-admin-list");
                 },
                 onError(error, variables, context) {
                     console.error(error);
@@ -183,7 +186,7 @@ const AddSuperAdmin = () => {
             <div className="card-footer">
                 <div className="d-grid d-md-flex justify-content-md-end">
                     <button className="btn btn-success" type="submit">
-                        Add {/* {isLoading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <i className="fa-solid fa-floppy-disk"></i>} Save Draft & Proceed */}
+                        {isLoading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <i className="fa-solid fa-add"></i>} Add Super Admin
                     </button>
                 </div>
             </div>
